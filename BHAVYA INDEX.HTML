@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flipkart Clone</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="brand">Flipkart</span>
+        <span class="sub-brand">Explore <i>Plus</i> <i class="fa fa-plus text-yellow"></i></span>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products, brands and more" />
+        <button><i class="fa fa-search"></i></button>
+      </div>
+      <button class="login-btn">Login</button>
+      <div class="nav-links">
+        <a href="#">Become a Seller</a>
+        <a href="#">More <i class="fa fa-chevron-down text-xs"></i></a>
+        <a href="#cart" class="cart-btn"><i class="fa fa-shopping-cart"></i> Cart <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Categories -->
+  <nav class="categories-bar">
+    <div class="cat-item"><span>📱</span>Mobiles</div>
+    <div class="cat-item"><span>💻</span>Electronics</div>
+    <div class="cat-item"><span>📺</span>Appliances</div>
+    <div class="cat-item"><span>👕</span>Fashion</div>
+    <div class="cat-item"><span>🧸</span>Beauty & Toys</div>
+    <div class="cat-item"><span>🛋️</span>Home & Furniture</div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="banner-slider">
+    <div class="banner active">
+      <h2>Big Billion Days Sale!</h2>
+      <p>Up to 80% Off on Top Electronics & Fashion</p>
+    </div>
+  </section>
+
+  <!-- Product Shelf -->
+  <main class="product-container">
+    <div class="section-header">
+      <h3>Best of Electronics</h3>
+      <button class="view-btn">VIEW ALL</button>
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Dynamically populated or static cards -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=300&q=80" alt="iPhone 15" />
+        <h4>Apple iPhone 15 (128 GB)</h4>
+        <div class="rating"><span class="badge">4.6 ★</span> (14,205)</div>
+        <div class="price-row">
+          <span class="price">₹69,999</span>
+          <span class="orig-price">₹79,900</span>
+          <span class="discount">12% off</span>
+        </div>
+        <button class="add-cart" onclick="addToCart(1)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&q=80" alt="Sony Headphones" />
+        <h4>Sony WH-1000XM5 ANC</h4>
+        <div class="rating"><span class="badge">4.7 ★</span> (4,210)</div>
+        <div class="price-row">
+          <span class="price">₹26,990</span>
+          <span class="orig-price">₹34,990</span>
+          <span class="discount">22% off</span>
+        </div>
+        <button class="add-cart" onclick="addToCart(2)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Running Shoes" />
+        <h4>Puma Nitro Grip Sneakers</h4>
+        <div class="rating"><span class="badge">4.3 ★</span> (6,540)</div>
+        <div class="price-row">
+          <span class="price">₹3,199</span>
+          <span class="orig-price">₹7,999</span>
+          <span class="discount">60% off</span>
+        </div>
+        <button class="add-cart" onclick="addToCart(3)">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let count = 0;
+    function addToCart(id) {
+      count++;
+      document.getElementById('cart-count').innerText = count;
+      alert("Product " + id + " added to Flipkart cart!");
+    }
+  </script>
+</body>
+</html>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  background-color: #f1f3f6;
+  color: #212121;
+}
+
+.text-yellow { color: #ffe11b; }
+.text-xs { font-size: 10px; }
+
+/* Navbar */
+.navbar {
+  background-color: #2874f0;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 16px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 800;
+  font-style: italic;
+  color: #fff;
+}
+
+.sub-brand {
+  display: block;
+  font-size: 11px;
+  color: #f0f0f0;
+  font-style: italic;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 550px;
+  display: flex;
+  background: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  width: 100%;
+  border: none;
+  padding: 9px 16px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  padding: 0 12px;
+  color: #2874f0;
+  cursor: pointer;
+}
+
+.login-btn {
+  background: #fff;
+  color: #2874f0;
+  border: none;
+  padding: 6px 28px;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Category Sub-bar */
+.categories-bar {
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 16px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+}
+
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Banner */
+.banner-slider {
+  max-width: 1240px;
+  margin: 12px auto;
+  padding: 0 16px;
+}
+
+.banner {
+  background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+  color: #fff;
+  padding: 40px;
+  border-radius: 4px;
+}
+
+/* Product Container */
+.product-container {
+  max-width: 1240px;
+  margin: 16px auto;
+  background: #fff;
+  padding: 16px;
+  border-radius: 4px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.view-btn {
+  background: #2874f0;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.product-card h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.badge {
+  background: #388e3c;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.rating {
+  font-size: 12px;
+  color: #878787;
+  margin-bottom: 8px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.orig-price {
+  font-size: 12px;
+  color: #878787;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-size: 12px;
+  color: #388e3c;
+  font-weight: 600;
+}
+
+.add-cart {
+  background: #ffe11b;
+  border: none;
+  padding: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.add-cart:hover {
+  background: #f5d718;
+}
+import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+
+public class FlipkartServer {
+    private static final int PORT = 8080;
+
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
+        
+        // Register API endpoints
+        server.createContext("/api/products", new ProductCatalogHandler());
+        server.createContext("/api/checkout", new CheckoutHandler());
+        
+        server.setExecutor(null); // default executor
+        System.out.println("Flipkart Java Backend Server running on port " + PORT + "...");
+        server.start();
+    }
+
+    // Handler returning JSON catalog
+    static class ProductCatalogHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            exchange.getResponseHeaders().set("Content-Type", "application/json");
+            exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+
+            String responseJson = "["
+                + "{\"id\":1,\"title\":\"Apple iPhone 15\",\"category\":\"Mobiles\",\"price\":69999,\"stock\":45},"
+                + "{\"id\":2,\"title\":\"Sony WH-1000XM5 ANC\",\"category\":\"Electronics\",\"price\":26990,\"stock\":18},"
+                + "{\"id\":3,\"title\":\"Puma Nitro Grip Shoes\",\"category\":\"Fashion\",\"price\":3199,\"stock\":120}"
+                + "]";
+
+            byte[] bytes = responseJson.getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200, bytes.length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(bytes);
+            os.close();
+        }
+    }
+
+    // Handler to process simple checkout logic
+    static class CheckoutHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            exchange.getResponseHeaders().set("Content-Type", "application/json");
+            exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+
+            String responseJson = "{\"status\":\"SUCCESS\",\"message\":\"Order placed successfully!\"}";
+            byte[] bytes = responseJson.getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(200, bytes.length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(bytes);
+            os.close();
+        }
+    }
+}
+#include <iostream>
+#include <vector>
+#include <string>
+#include <unordered_map>
+#include <iomanip>
+#include <mutex>
+
+struct Product {
+    int id;
+    std::string name;
+    double basePrice;
+    int stock;
+};
+
+class FlipkartPricingAndInventoryEngine {
+private:
+    std::unordered_map<int, Product> inventory;
+    std::mutex engineLock;
+
+public:
+    void addProduct(int id, const std::string& name, double price, int stock) {
+        std::lock_guard<std::mutex> guard(engineLock);
+        inventory[id] = {id, name, price, stock};
+    }
+
+    // Calculate dynamic discount based on flash-sale rules & volume
+    double computeFinalPrice(int productId, double discountPercentage, double taxRate) {
+        std::lock_guard<std::mutex> guard(engineLock);
+        if (inventory.find(productId) == inventory.end()) {
+            return -1.0;
+        }
+
+        double base = inventory[productId].basePrice;
+        double discounted = base - (base * (discountPercentage / 100.0));
+        double finalPrice = discounted + (discounted * (taxRate / 100.0));
+        return finalPrice;
+    }
+
+    // Deduct stock safely
+    bool purchaseItem(int productId, int quantity) {
+        std::lock_guard<std::mutex> guard(engineLock);
+        if (inventory.find(productId) != inventory.end() && inventory[productId].stock >= quantity) {
+            inventory[productId].stock -= quantity;
+            return true;
+        }
+        return false;
+    }
+
+    void displayProductStatus(int productId, double discountPct, double taxRate) {
+        if (inventory.find(productId) == inventory.end()) {
+            std::cout << "Product ID " << productId << " not found.\n";
+            return;
+        }
+        Product p = inventory[productId];
+        double finalAmt = computeFinalPrice(productId, discountPct, taxRate);
+
+        std::cout << "-------------------------------------------\n";
+        std::cout << "Item: " << p.name << "\n";
+        std::cout << "Base Price: Rs. " << std::fixed << std::setprecision(2) << p.basePrice << "\n";
+        std::cout << "Discount: " << discountPct << "%\n";
+        std::cout << "Calculated Checkout Amount: Rs. " << finalAmt << "\n";
+        std::cout << "Remaining Stock: " << p.stock << "\n";
+        std::cout << "-------------------------------------------\n";
+    }
+};
+
+int main() {
+    FlipkartPricingAndInventoryEngine engine;
+
+    // Load initial Flipkart catalog items into high-speed memory
+    engine.addProduct(1, "Apple iPhone 15 (128 GB)", 79900.00, 50);
+    engine.addProduct(2, "Sony WH-1000XM5 ANC", 34990.00, 20);
+    engine.addProduct(3, "Puma Nitro Grip Shoes", 7999.00, 100);
+
+    std::cout << "=== FLIPKART C++ CORE PRICING & INVENTORY ENGINE ===\n";
+
+    // Scenario 1: Big Billion Days Discount + 18% GST calculation
+    engine.displayProductStatus(1, 12.4, 18.0);
+
+    // Scenario 2: High-speed checkout deduction
+    std::cout << "\nExecuting Flash Sale purchase of 2 units for iPhone 15...\n";
+    if (engine.purchaseItem(1, 2)) {
+        std::cout << ">> Purchase Successful!\n";
+    } else {
+        std::cout << ">> Out of stock!\n";
+    }
+
+    engine.displayProductStatus(1, 12.4, 18.0);
+
+    return 0;
+}
